@@ -84,7 +84,11 @@ class VotePage extends Component {
         // console.log("mouseMoveHandler, x:"+mouseMoveX);
         const dX = mouseMoveX - this.state.mouseDownX;
         // console.log("mouseMoveHandler, dx:"+dx);
-        let dVal = ( dX / (Config.SLIDER_WIDTH - Config.SLIDER_BUTTON_WIDTH)) * 100;
+        
+        // let dVal = ( dX / (Config.SLIDER_WIDTH - Config.SLIDER_BUTTON_WIDTH)) * 100;
+        let sliderWidth = $('.HorizontalSliderBar').width();
+        let buttonWidth = $('.HorizontalSliderButton').width()+100;
+        let dVal = ( dX / (sliderWidth - buttonWidth)) * 100;
 
         // console.log("mouseMoveHandeler, newVal:"+newVal);
 

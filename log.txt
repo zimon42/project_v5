@@ -596,11 +596,35 @@ This means cors is not the problem
 
 WOOOOOOOOOO!!!!!!!!! Solved bug. Had used the wrong path in the config file. Had used  https://miedweb.org/momsapp_v4/backend/index.php".But on the server i didnt have a "backend" folder. The files were directly in the momsapp_v4 folder. What probably happened was that a "Not found" message was sent to the client, which didnt have the allow-all-origin header.
 
-2018-11-19
-----------
+2018-11-19 v5 starts
+--------------------
 
 Create v5. How do I copy the old project? Cant find react-router error message. npm install react-router. Then commented away import line, then inserted it again, and it worked. Then needed to do the same thing with react-router-dom
 
 Clicking vote-panel gets stuck in Laddar data... Ah, wamp server is probably not running.
 
 Server returns empty vats array. Run init_vats.php. Works!! v5 now up and running
+
+V5 mission: Make app responsive
+
+tests/test2_responsive_bar
+
+https://www.youtube.com/watch?v=fA1NW-T1QXc
+
+Add meta tag: <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+@media screen and (max-width:800px) {
+    .bar {
+        width:600px;
+    }
+}
+
+Doesnt work-- ah forgot to add px in medie query (). Fixed above.
+
+https://responsivedesign.is/develop/browser-feature-support/media-queries-for-common-device-breakpoints/
+https://medium.freecodecamp.org/the-100-correct-way-to-do-css-breakpoints-88d6a5ba1862
+https://www.w3schools.com/howto/howto_css_media_query_breakpoints.asp
+
+https://www.smashingmagazine.com/2018/02/media-queries-responsive-design-2018/
+
+Working on min-width. Idea: set breakpoint every 100px.

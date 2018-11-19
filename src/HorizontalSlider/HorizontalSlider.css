@@ -9,7 +9,9 @@
     /*position:relative;*/
     /*top:-25px; */
     vertical-align:top;
+
     width: 1000px; /* If you change this value you need to update constatns in Config.js */
+
     height: 40px;
     background-color: #CCCCCC;
     text-align: center;
