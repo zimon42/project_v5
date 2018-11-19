@@ -57,6 +57,7 @@ class VotePage extends Component {
     componentDidMount = () => {
       document.body.addEventListener('mousemove', this.mouseMoveHandler);
       document.body.addEventListener('mouseup', this.mouseUpHandler);
+      window.addEventListener('resize', this.resizeHandler);
       // document.body.addEventListener('keypress', this.keyPressHandler);
       $('body').keydown(this.keyPressHandler);
       this.loadVats();
@@ -65,6 +66,7 @@ class VotePage extends Component {
     componentWillUnmount = () => {
       document.body.removeEventListener('mousemove', this.mouseMoveHandler);
       document.body.removeEventListener('mouseup', this.mouseUpHandler);
+      window.removeEventListener('resize', this.resizeHandler);
       // document.body.removeEventListener('keypress', this.keyPressHandler);
     }
     
@@ -87,7 +89,8 @@ class VotePage extends Component {
         
         // let dVal = ( dX / (Config.SLIDER_WIDTH - Config.SLIDER_BUTTON_WIDTH)) * 100;
         let sliderWidth = $('.HorizontalSliderBar').width();
-        let buttonWidth = $('.HorizontalSliderButton').width()+100;
+        let buttonWidth = $('.HorizontalSliderButton').width();
+        
         let dVal = ( dX / (sliderWidth - buttonWidth)) * 100;
 
         // console.log("mouseMoveHandeler, newVal:"+newVal);
@@ -349,6 +352,22 @@ class VotePage extends Component {
         });  
     }
 
+    resizeHandler = () => {
+      console.log("Resize");
+
+      /*
+      let stateCopy = {...this.state};
+      
+      for (let i=0; i<stateCopy.vats.length; i++) {
+        stateCopy["vats"][i].val += 0.001;
+      }            
+
+      this.setState(stateCopy);
+      */
+
+      this.forceUpdate();
+    }
+
     voteDoneHandler = () => {
       // alert("voteDoneHandler");
 
@@ -427,6 +446,8 @@ class VotePage extends Component {
     }
 
     render() {
+
+      console.log("VotePage render");
 
       if (this.state.returnToPortal) {
         return <Redirect to='/' />

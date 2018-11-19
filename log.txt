@@ -628,3 +628,23 @@ https://www.w3schools.com/howto/howto_css_media_query_breakpoints.asp
 https://www.smashingmagazine.com/2018/02/media-queries-responsive-design-2018/
 
 Working on min-width. Idea: set breakpoint every 100px.
+
+Ah, every time user resizes screen, button pos needs to be updated.
+
+Doesnt work. Ah forgot the "px" again at max-width.
+
+Complicatd. Can we use flex instead?
+
+CSS grid works! But slider button needs to be reset after user resizes the screen. Where is the slider button set to start with? After get_vats from server? And buttons might have been moved, before resize, ie not all buttons might be 12%.
+
+added resize handler. Didnt work at first. Had to use window.add and not document.body.add.
+
+Hm the state hasnt changed. Thats why setState is not taking into effect.
+https://stackoverflow.com/questions/30626030/can-you-force-a-react-component-to-rerender-without-calling-setstate
+
+Added fifth column 10px to grid-columns. Now horizontal scroll disappeared. 
+
+Ah let left = (this.props.val / 100) * (Config.SLIDER_WIDTH - Config.SLIDER_BUTTON_WIDTH);
+in HorizontalSlider.js.
+
+Oooo, added this.forceUpdate in VotePage.js. Now it works!

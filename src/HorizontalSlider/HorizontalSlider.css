@@ -10,7 +10,8 @@
     /*top:-25px; */
     vertical-align:top;
 
-    width: 1000px; /* If you change this value you need to update constatns in Config.js */
+    /* width: 1000px; */ /* If you change this value you need to update constatns in Config.js */
+    width:100%;
 
     height: 40px;
     background-color: #CCCCCC;
@@ -64,3 +65,11 @@
 .pointer_cursor {
     cursor:pointer;
 }
+
+/*
+@media screen and (max-width:800px) {
+    .HorizontalSliderBar {
+        width:200px;
+    }
+}
+*/

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import "./HorizontalSlider.css";
 import Config from "../config.js";
+import $ from "jquery";
+
 // import HorizontalSlider from '../HorizontalSlider';
 
 class HorizontalSlider extends Component {
@@ -11,7 +13,10 @@ class HorizontalSlider extends Component {
         // const slider_width = 1000;
         // const button_width = 100;
 
-        let left = (this.props.val / 100) * (Config.SLIDER_WIDTH - Config.SLIDER_BUTTON_WIDTH);
+        // let left = (this.props.val / 100) * (Config.SLIDER_WIDTH - Config.SLIDER_BUTTON_WIDTH);
+        let sliderWidth = $('.HorizontalSliderBar').width();
+        let buttonWidth = $('.HorizontalSliderButton').width();
+        let left = (this.props.val / 100) * (sliderWidth - buttonWidth);
 
         let style = {
             left:left+'px'
