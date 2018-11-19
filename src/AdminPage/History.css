@@ -1,0 +1,10 @@
+.HistoryList svg {
+    margin-bottom:0px;
+}
+.HistoryList td {
+    padding-right:10px;
+}
+.HistoryItemHeader {
+    font-size:10px;
+    margin-bottom:5px;
+}

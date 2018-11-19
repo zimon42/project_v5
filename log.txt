@@ -1,0 +1,606 @@
+Step : Create a React app that outputs Hello world
+--------------------------------------------------
+
+https://github.com/facebook/create-react-app
+Start command prompt by clicking the manifying glass and typing cmd.
+cd C:\wamp64\www\miedweb\
+npx create-react-app project_v4 (npx is not a spelling error)
+cd project_v4
+npm start
+
+localhost:3000 doesnt work
+Now it suddenly works! I didn't do anything fix it. Maybe it needn't some time to start the server
+
+Now lets edit to show "Hello world"
+
+Open VS Code and click File->Open Folder from the File menu
+
+Edited the App.js file. It now shows Hello world!
+
+Next lets install git
+
+First create a remote repository at github
+
+There were problem creating the account
+Password has been compromised in a third party data breach
+
+Chose a harder password - works now. Here is the info:
+Username: zimon42
+Email: simon.wrang2@gmail.com
+Password: ilv23456
+
+Next start a repository on github:
+
+Had to verify email
+
+Now it works
+
+Now lets install git on my machine
+
+git.init
+echo >>gittest.txt
+git add gittest.txt
+git commit -m "first commit"
+
+Gives message: "Please tell me who you are"
+
+Added email and name
+
+Now it worked
+
+Hm, I never had to input my password to my remote repository at github when installing git, or creating the local repository on my machine. 
+
+Now when i pushed, I had to enter it
+
+Stuck. Clicked Enter on the keyboard, then it continued
+
+Still displays Hello World despite ive created a NumberScroller component that should display "NumberScroller".
+
+Restared server - still doesnt work.
+
+Fixed import NumberScroller in App.js. Now it works!!
+
+Setting width for text field to 25 px, but still is long
+
+Broke the import. Yielded a compile error. Then changed back, and now it works. This is the second time this happens. Next time, break the import and then fix it, to make it works. 
+
+Fixed problem: I kept only get one text field when I had three number scroller components. In NumberScrollerPanel, had export default NumberScroller; when I should have had
+export default NumberScrollerPanel;
+
+TypeError: Cannot read property 'val' of undefined. 
+Solved: Changed from props.val to this.props.val. Removed props from render argument.
+
+Next fix when click decrease button, decrease by one
+
+Fixed so all buttons work!!
+
+How do you comment several lines in React html ?
+Use {/* */}
+
+Number scroller list with array map works!!
+
+Now I wanto save files (log.txt and src folder) to git
+
+Did git add log.txt -- it worked
+
+When doing commit, use -m flag, otherwise opens up some editor whish i don't know how to exit from.
+
+How do you push to remote server?
+git push origin master
+
+Now that list works, what next?
+Update the other vats
+
+Updating other vats works!!
+
+What to do next?
+Add a lock button
+
+Refactoring app with VatPanel etc
+Stuck!
+
+How do you indent a piece of selected code in vs code?
+https://stackoverflow.com/questions/40492960/how-to-indent-format-a-selection-of-code-in-vscode-with-ctrlshiftf
+Use Ctrl + ]? Its not working
+
+Hello world not displaying when using three VatPanel where each VatPanel should output "Hello world"; Fixed: Forgot to add call to renderVatPanels method in render body
+
+Cannot display image lock.png
+https://stackoverflow.com/questions/39999367/how-do-i-reference-a-local-image-in-react
+Solution:
+import img from './lock.png';
+<img src={img} />
+
+NumberScrollerVatPanelTitle class is not having any effect.
+Solution: Injected a syntax error and then corrected it
+
+How do I pass state down from top component to a component much fruther down in the hierarchy?
+Pass entire vat (not vats) object down to VatPanel component
+
+Now incHandler and decHandler shows alert
+
+inc and decHandler need the index of the changed vat
+My solution: pass another attribute "index" down the hierarchy.
+
+Pressing buttons works!! Updates the other vats correctly
+
+Next fix LockSetter
+
+LockHandler method in VotePanel file alerts correct index
+
+Bug: Created a new LockHandler method without an alert, but it still alerted. Finally I figured out I had already made a LockHandler method further down in the code that was being used.
+
+isLocked works!
+
+Soda
+Coffee
+Milk
+Chocolate
+Rejuvelac
+Black tea
+Green tea
+Roibos
+Broth
+Mineral water
+Average
+
+HorizontalSlierVotePanel prints Hello world
+
+Created state with 10 coca colas
+
+How do I specify an image address without importing all of them?
+https://stackoverflow.com/questions/42580130/display-images-in-react-using-jsx-without-import
+Solution:
+<img 
+    src={ require("../images/"+this.props.vat.img)}
+></img>
+
+Shows soda images
+
+Couldnt find module HorizontalSlider. Solved: forgot to add HorizontalSlider to path below
+import HorizontalSlider from '../HorizontalSlider/HorizontalSlider
+
+Don't forget to Save All!!!! That explains why I had to introduce a syntax error and then correct it to make the app work - files werent saved.
+
+Problem: Slider bar anchored at bottom
+Solution:
+vertical-align: top
+
+All 10 images displaying
+
+Slider button graphics done!
+
+Mouse down handler works!
+
+I need to capture a mouse move event. But I wanto set it on the body element.
+https://fortes.com/2018/react-and-dom-events/
+Solution:
+https://stackoverflow.com/questions/32485520/how-can-i-add-a-click-handler-to-body-from-within-a-react-component 
+
+Next. Set val in vote panel and should move the button accordingly
+Must set style={style} in horizontalSliderButton
+
+Working on calculating left
+Working!
+
+Used "static" keyword to define constants in config.js
+
+can drag slider buttons!
+Slow in Google Chrome
+Bug1: when clicking the slider button again, jumps to beginning
+Bug2: Error "nweVal" is read-only,
+at if (newVal < 0) newVal = 0;
+
+Solution to bug2: We have defined newVal as a const but when passing slide endpoints we altered the value and therefor must be "let".
+
+Solution to bug1: Forgot to set oldVal in state in mouseDownHandler. The value being used was instead 0 which was the value the state was initialized to.
+
+Next: Update other slider buttons
+
+All of a sudden slider button is fast again in Chrome. Removed console.log in render method that was being repeated every time the mouse moved.
+
+Working on toSpare. Not working. Solved: Calculated newVal too high up, before dVal was reduced. Solved by moving newVal calculation after reducing newVal
+
+Sorts array of indices works!
+
+Moves other sliders almost works. But when one slider button gets too close to the end, it starts shimmering.
+
+Bug: Moves each other slider as much as the slider being dragged. Solved:
+dist = usedDVal / (arr.length-1);
+Remove the -1:
+dist = usedDVal / (arr.length);
+
+Oops should be:
+dist = usedDVal / (arr.length-i);
+
+Still buggy. Flickering
+
+index:1
+
+HorizontalSliderVotePanel.js:138 distTo0:4.277777777777776
+HorizontalSliderVotePanel.js:139 distAll:8.555555555555552
+HorizontalSliderVotePanel.js:140 usedDVal:8.777777777777777
+HorizontalSliderVotePanel.js:149 NOT distAll > usedDVal
+HorizontalSliderVotePanel.js:137 index:2
+
+HorizontalSliderVotePanel.js:138 distTo0:11.166666666666668
+
+HorizontalSliderVotePanel.js:139 distAll:11.166666666666668
+HorizontalSliderVotePanel.js:140 usedDVal:0.22222222222222499
+HorizontalSliderVotePanel.js:145 distAll > usedDVal
+HorizontalSliderVotePanel.js:189 mouseUpHandler
+
+Seems to change mode when reached half way
+
+Is oldVals not being updated?
+
+Added this to mouseMoveHandler, but then speeds away
+        // Set old vals
+        let oldVals = new Array(this.state.vats.length);
+        for (let i=0; i<oldVals.length; i++) {
+          oldStateCopy.oldVals[i] = this.state.vats[i].val;
+        }
+
+Still working on this bug
+
+Big improvement by using tempVals. 
+
+Interesting: If sliders are oredered from top to bottom, no bug occurs.
+
+Måste arrayen sorteras om?
+
+Bug solved!!! Sorted on vat.vals when should have sorted on oldVats.
+
+handleOthersSlider works in both directions!!
+
+Next: Fix LockSetter
+
+Toggles locksetter green and red borders
+
+Next, if trying to drag slider with red lock: do not move. Done!
+
+Next, do not move other sliders that are locked. Approach: in handleOtherSliders filter out arr with only unlocked indices. Works!
+
+Next recalculate toSpare - works!
+
+Next: Create router pages!
+
+HomePage route displayes correctly, but cannot find modules AdminPage and VotePage.
+
+New error: A <Router> may have only one child element"
+https://stackoverflow.com/questions/42992911/react-router-only-one-child
+Solution: You have to wrap routes in a div
+
+Working! The other error of not being able to find modules are gone.
+
+Working on HomePage component
+
+Vote link works!
+
+Removed comments to show all ten vats but still only shows the six vats. Solution: Restarted the server
+
+How do you deploy a react application togheter with php?
+https://www.youtube.com/watch?v=BPGIrau9dW4
+
+Start by deploying a react app on the web hotel
+
+$arr = array("name" => "simon", "age" => "42");
+echo json_encode($arr);
+
+Use Netlify
+https://www.youtube.com/watch?v=lCcBEDPTk4o
+
+https://www.youtube.com/watch?v=yU5DYccb77A
+
+"How do I host this?"
+https://medium.freecodecamp.org/i-built-this-now-what-how-to-deploy-a-react-app-on-a-digitalocean-droplet-662de0fe3f48
+
+https://www.fullstackreact.com/30-days-of-react/day-27/
+
+https://codebrahma.com/deploy-react-application-depth-overview-various-options-deploy/
+
+Next: Create a simple helloworld react app and try to deploy it (to githubpages?).
+
+create-react-app helloworld
+
+Created a remote repository "helloworld" on github. 
+
+Deploy on gitpages:
+https://www.youtube.com/watch?v=7yA7BGos2KQ&t=114s
+
+Very good:
+https://www.youtube.com/watch?v=1Y-PqBH-htk
+
+1. In package.json add:
+"homepage": "https://zimon42.github.io/helloworld",
+at top level.
+
+2. Add "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+under scripts
+
+3. Install gh-pages:
+npm install --save gh-pages
+
+4. Run deploy:
+npm run deploy
+
+5. Look at homepage: https://zimon42.github.io/helloworld
+
+Hello world worked!
+
+Tried deploying project_v4. Displays nothing. No errors.
+
+Is it because im not using Hastroute as desribed in https://www.youtube.com/watch?v=7yA7BGos2KQ&t=114s
+?
+
+Woo! Added, committed and pushed everything, and then deployed again and now the "Project v4" title shows. Try putting routes back. If it doesnt work, then use Hashrouter.
+
+Ok doesnt work. Now use hashrouter
+
+Didnt work, empty page
+
+Ohh now it works without havnig done anything, seems to be a little delay for the changes to push onto the server!!
+
+My address is:
+https://zimon42.github.io/project_v4/#/
+
+Make test app, helloworld2. Presses button, gets jquery get request and prints message.
+
+https://www.youtube.com/watch?v=rNEle8zsoWg&t=178s
+
+npm install jquery --save
+
+https://www.w3schools.com/jquery/jquery_ajax_get_post.asp
+
+php file:
+http://localhost/miedweb/helloworld2/src/helloworld2.php
+
+Failed to load http://localhost/miedweb/helloworld2/src/helloworld2.php: No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'http://localhost:3000' is therefore not allowed access.
+
+https://www.youtube.com/watch?v=829ZO-bAvPA
+
+"To make it avaialbe to all ... you need to enable the CORS"
+"Cross Origin Resource Sharing"
+
+https://enable-cors.org/server_php.html
+header("Access-Control-Allow-Origin: *");
+
+Works!
+
+React:
+  clickHandler = () => {
+    $.post("http://localhost/miedweb/helloworld2/src/helloworld2.php",
+    {
+        name: "Donald Duck",
+        city: "Duckburg"
+    },
+    function(data, status){
+        let obj = JSON.parse(data);
+        // alert("Data: " + data + "\nStatus: " + status);
+        alert(obj.message);
+    });
+  }
+
+Php:
+<?php
+header("Access-Control-Allow-Origin: *");
+// echo "Hello world";
+$arr = array("message" => "Hello World!!!");
+echo json_encode($arr);
+?>
+
+Added IKEA header and insructions.
+
+{vats:this.state.vats}
+$_POST["vats"]
+
+Working on vats php
+
+Restarted computer. Dragging slides was slow. Noticed that writing text in Chrome textfield also was slow. Then it became fast again. So just have to wait for a while after starting the computer.
+
+Create table Vats yielded sql syntax error. Solved: removed comma before closing parenthesis.
+
+Syntax error in addVat. Solved: Missing comma after 12.
+
+Add vats to table works. Next get Vats
+
+componentDidMount not firing. But componentWillMount works. Is it because the warnings? Create small app "helloworld3" and see if it works there.
+Solved: Ohhhh! Had defined componentDidMount upstairs in the code to include the mousemove listeneres.
+
+Ajax call returns "Get Vats!!!"
+
+PollHandlerDb error, pollId was still there.
+
+Hm, id=1..8 from database. But we want 0..7. Does it matter?
+
+Removed vats in state upstairs in the code. Get vats from backend. Get error: TypeError: Canno read property map of undefined, probably because vats have not been recieved yet as the ajax call is asynchronous. 
+
+Error: cannot find green_tea.png. Solved: should be .jpg
+Still error after changing init_vats.php. Solve: Must create tables again. Lets create a init_server script
+
+Hm yields error. But when run on its own, init_vats works. But not inside the init_server script. So must run separately until we fix it.
+
+Loaded vats, but spazz out. Could it be that 12 is inside "". 
+Woo fixed it! Call parseInt on all vals in vat array.
+
+Load vats now complete. Next handle vote
+
+How handle decimal vals? Change the database to save vals as decimal numbers
+
+Cant load vats. cant find Vote.php etc.
+
+Now works!! Saves vote in Votes table
+
+Hm vals saved as ints in database despite setting it to decimal.
+
+Ah had to use two args: DECIMAL(10,5). Check w3schools for more details. 5 means 5 digits to the right of the decimal point. First had 3 as first argment as 100 has 3 digits. But got error that first argument must be greated than second argument.
+
+Done for today, next make "Tack för din röst" page.
+
+Thankyou screen seems to be working, but doesnt show "Laddar data" the second time.
+
+Next fix Escape-key. What is the js name for the keypress event? "keypress". How do I check that it was the escape key that was pressed?
+
+Caught other bug: TypeError: Cannot read property '0' of undefined, row 70, 
+mouseMoveHandler = (e) => {
+  if (this.state.vats[this.state.vatIndex].isLocked.
+
+So problem is moving mouse before the vats data has loaded. Check in beginning of moueMoveHandler if vats exist. If not, return;
+
+Escape key not working. Deprecated code? https://stackoverflow.com/questions/3369593/how-to-detect-escape-key-press-with-pure-js-or-jquery. THough that is jquery, but maybe i can use that instead
+
+Escape key still not working. keydown works however. Lets use that instead
+
+Now, how do I redirect back to portal when user has pressed escape key?
+https://medium.com/@anneeb/redirecting-in-react-4de5e517354a
+
+However cannot import. Found other page:
+import { Redirect } from 'react-router'
+https://stackoverflow.com/questions/43230194/how-to-use-redirect-in-the-new-react-router-dom-of-reactjs
+Still not working. Ooo, put the import in App.js but should be in VotePage.js
+
+Ooo works! Redirect to portal
+
+How should we design the admin page?
+
+Prints history dates to console
+
+Working on HistoryList component
+
+How do we make a table?
+How to concatenate jsx pieces
+https://stackoverflow.com/questions/36912179/how-to-concatenate-two-jsx-fragment-or-variables-or-string-and-component-in-rea/36913042
+
+Creates table with item_i inside cells
+
+Shows "drink" titles and draws blue bars. But why are only seven drink titles visible?
+
+Next: add random votes.
+
+Refactored out addVote - app still works, phew :-)
+
+add_random_vote bug: in Votehandler vat-id does not match val-id. Solved: id's begin at 1 not 0.
+
+Hm should yield 100 votes, not 1. Must use nested for loop
+
+add_random_votes now works!
+
+Next add colors
+
+Oh no empty history! create_tables erased old history items
+
+Displays colors!!
+
+Now history looks real nice, with date header!
+
+Creating new algorithm for add_random_votes. Bug: Iterated forever. Solved: $t should have been $t++ in for loop. Bug 2: VoteHandler.php: val id does not match vat id. Solved: $valsArr = array() was inside for loop, should have been outside.
+
+New algorithm now works!
+
+Next: Implement show statistics
+Cannot find old stats page. Found it in vote_page.php
+
+Send json encoded stats array to client -> displays array
+
+Statistics page with diagram works! Although slow.
+Oops should not be 8 but 100. Now fixed!
+
+Back button in admin panel now works
+
+Ok time to make everything global
+
+Plan:
+1. Deploy to githubpages.
+npm run deploy
+
+2. Test react app frontend. Note: that backend not setup yet. Only portal will work.
+See address in package.json file: https://zimon42.github.io/project_v4
+
+3. Move backend files to manufrog
+Zip first.
+
+4. Log into manufrog cpanel. Use username and password highest up on paper. Open Filhanteraren. Click public_html. Create folder momsapp_v4. Upload .zip file. Right click and choose extract.
+
+5. Create database on manufrog: miedwebo_momsapp_v4
+Lägg till användare i databas: miedwebo_root. 
+
+6. Update database_info.php, check old file in old momsapp:
+$polls_db_server = "127.0.0.1";
+$polls_db_username = "miedwebo_root";
+$polls_db_password = "abcdefgh123456";
+$polls_db_database = "miedwebo_poll_database";
+Change miedwebo_poll_database to miedwebo_momsapp_v4
+
+7. Change config file backend_entry_file to miedweb.org/momsapp_v4/index.php
+Run npm run deploy again
+
+Then dont forget to change back to local backen_entry_file.
+
+Error:
+jquery.js:8478 Mixed Content: The page at 'https://zimon42.github.io/project_v4/#/admin/' was loaded over HTTPS, but requested an insecure XMLHttpRequest endpoint 'http://miedweb.org/momsapp_v4/backend/index.php'. This request has been blocked; the content must be served over HTTPS.
+
+Try changing to 'https://miedweb.org/momsapp_v4/backend/index.php' in config file (added the s)
+
+Still same error. Right clicked and deleted cache. Now worked. Now Access to XMLHttpRequest at 'https://miedweb.org/momsapp_v4/backend/index.php' from origin 'https://zimon42.github.io' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+
+But I thought i had that header.
+
+https://stackoverflow.com/questions/26416727/cross-origin-resource-sharing-on-github-pages. "Theres no way on github pages to support cross origin" :-(. But crossed out, says it supports it now.
+
+From 2018 about setting up github pages:
+https://www.youtube.com/watch?v=SKXkC4SqtRk
+
+Google "how to enable cors on github pages".
+
+https://stackoverflow.com/questions/18923328/is-there-a-way-to-enable-cors-on-github-pages/25957840 "Is there a way to enable CORS for Github pages?"
+"Github Pages now has CORS enabled.
+The CORS header:
+Access-Control-Allow-Origin: *
+Is added by default on all responses from Github pages!"
+Hm not same thing. Is the problem with manufrog?
+
+Ok, make minified program that just tests cors on github pages.
+
+Plan:
+1. Create react app:
+Stand in c:\wamp64\www\miedweb and do create-react-app helloworld4
+
+2. Start server: npm start
+
+3. Install jquery: npm install jquery --save
+
+4. Gets data correctly to local computer. That means manufrog is not removing the cors header. Next, move it to github pages
+
+5. Create remote repo on github.
+echo "# helloworld4" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/zimon42/helloworld4.git
+git push -u origin master
+
+6. Install git, follow above instructions.
+
+7. npm run deploy. Page wont open.
+
+Ok, helloworld project works, copy code to it.
+
+Failed to load resource: the server responded with a status of 404 ()
+
+Handle cors:
+https://gist.github.com/jesperorb/6ca596217c8dfba237744966c2b5ab1e
+
+Hello world works!!!!
+This means cors is not the problem
+
+WOOOOOOOOOO!!!!!!!!! Solved bug. Had used the wrong path in the config file. Had used  https://miedweb.org/momsapp_v4/backend/index.php".But on the server i didnt have a "backend" folder. The files were directly in the momsapp_v4 folder. What probably happened was that a "Not found" message was sent to the client, which didnt have the allow-all-origin header.
+
+2018-11-19
+----------
+
+Create v5. How do I copy the old project? Cant find react-router error message. npm install react-router. Then commented away import line, then inserted it again, and it worked. Then needed to do the same thing with react-router-dom
+
+Clicking vote-panel gets stuck in Laddar data... Ah, wamp server is probably not running.
+
+Server returns empty vats array. Run init_vats.php. Works!! v5 now up and running

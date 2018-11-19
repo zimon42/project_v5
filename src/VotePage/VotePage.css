@@ -1,0 +1,41 @@
+.VotePageTitle {
+    text-align:center;
+    background-color: blue;
+    color:yellow;
+    font-size:20pt;
+    margin-bottom:10px;
+    padding:10px;
+}
+
+.VotePageInstructions {
+    background-color: gray;
+    margin-top:10px;
+    padding:10px;
+    color:white;
+}
+
+#VotePageVoteButton {
+    width:100px;
+    height:40px;
+    text-align:center;
+    margin-top:10px;
+}
+
+#VotePageBackButton {
+    width:100px;
+    height:40px;
+    text-align:center;
+    margin-top:10px;
+    margin-left:5px;
+}
+
+.VotePageThankyouDiv {
+    top:0px;
+    left:0px;
+    bottom:0px;
+    right:0px;
+    position:absolute;
+    font-size:20pt;
+    text-align:center;
+    padding-top:200px;
+}

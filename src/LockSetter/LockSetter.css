@@ -1,0 +1,21 @@
+.LockSetter {
+    display: inline-block;
+    vertical-align: top;
+    margin-left:5px;
+}
+
+.LockSetterButton {
+    width:45px;
+    height:40px;
+    /*position:relative;*/
+    /*top:6px;*/
+}
+
+.LockSetterIsLockedFalse {
+    /* border:1px solid green; */
+}
+
+.LockSetterIsLockedTrue {
+    border:3px solid red;
+    background-color: pink;
+}

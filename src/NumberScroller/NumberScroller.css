@@ -1,0 +1,8 @@
+.NumberScroller {
+    display:inline-block;
+    margin-right:10px;
+}
+
+.NumberScrollerText {
+    width:25px;
+}

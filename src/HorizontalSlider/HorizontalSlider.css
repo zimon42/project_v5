@@ -1,0 +1,64 @@
+.HorizontalSlider {
+    display:inline-block;
+    vertical-align: top;
+    position:relative;
+}
+
+.HorizontalSliderBar {
+    display:inline-block;
+    /*position:relative;*/
+    /*top:-25px; */
+    vertical-align:top;
+    width: 1000px; /* If you change this value you need to update constatns in Config.js */
+    height: 40px;
+    background-color: #CCCCCC;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    border: solid 1px #888888;
+    z-index: 1;
+    background-image: url('slide.png');
+    background-size: 800px 40px;
+    background-position: 100px 0px;
+    background-repeat: no-repeat;
+}
+
+.HorizontalSliderButton {
+	width: 100px; /* If you change this value you need to update constatns in Config.js */
+	height: 50px;
+    top: -4px;
+    left:0px;
+	background-color: #0088AA;
+	border: solid 1px #888888;
+	border-radius: 8px;
+	position: absolute;
+	z-index: 2;
+}
+
+.HorizontalSliderButtonWindow {
+	width: 80px;
+	height: 29px;
+	margin: 9px;
+	background-color: #000000;
+	border-radius: 4px;
+	z-index: 3;
+	color: #FFFFFF;
+	font-size: 14pt;
+	text-align: center;
+	font-family: 'Verdana', Geneva, sans-serif;
+    font-weight: 600;
+    padding-top:5px;
+}
+
+.no-select {
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Safari */
+	-khtml-user-select: none; /* Konqueror HTML */
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none;
+}
+
+.pointer_cursor {
+    cursor:pointer;
+}
