@@ -648,5 +648,3 @@ Ah let left = (this.props.val / 100) * (Config.SLIDER_WIDTH - Config.SLIDER_BUTT
 in HorizontalSlider.js.
 
 Oooo, added this.forceUpdate in VotePage.js. Now it works!
-
-Next: fix slider background. Fixed!
