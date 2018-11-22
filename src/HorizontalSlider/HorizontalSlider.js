@@ -18,6 +18,8 @@ class HorizontalSlider extends Component {
         let buttonWidth = $('.HorizontalSliderButton').width();
         let left = (this.props.val / 100) * (sliderWidth - buttonWidth);
 
+        //console.log("HorizontalSlider render");
+
         let style = {
             left:left+'px'
         };

@@ -61,6 +61,13 @@ class VotePage extends Component {
       // document.body.addEventListener('keypress', this.keyPressHandler);
       $('body').keydown(this.keyPressHandler);
       this.loadVats();
+
+      // SliderButton didnt set position when page loaded, because jquery
+      // call in HorizontalSlider returned undefined. Now this made it work:
+      $(document).ready(() => {
+        console.log("Document is ready");
+        this.forceUpdate();
+      });
     }
 
     componentWillUnmount = () => {
@@ -343,7 +350,7 @@ class VotePage extends Component {
 
             // parseInt
             for (let i=0; i<vatsArr.length; i++) {
-              stateCopy["vats"][i].val = parseInt(stateCopy["vats"][i].val);
+              stateCopy["vats"][i].val = parseInt(stateCopy["vats"][i].val);              
             }
 
             stateCopy.votePageState = "showing_vote_panel";

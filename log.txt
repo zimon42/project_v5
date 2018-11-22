@@ -650,3 +650,15 @@ in HorizontalSlider.js.
 Oooo, added this.forceUpdate in VotePage.js. Now it works!
 
 Next: fix slider background. Fixed!
+
+2018-11-22
+----------
+
+Slider buttons dont set position. Clicking anywhere in the window sets their positions. Reverted but still didn't work. Reverted back.
+
+HorizontalSlider: left is NaN; sliderWidth is undefined. OO now it works. Added
+$(document).ready(() => {
+        console.log("Document is ready");
+        this.forceUpdate();
+      });
+to VotePage.js -> componentDidMount
