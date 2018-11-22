@@ -37,15 +37,20 @@
     height:50px;
 }
 
-/*
 @media screen and (max-width:500px) {
+    .HorizontalSliderVatPanel {
+        display:grid;
+        grid-template-columns: 25px 60px auto 23px 30px;
+        margin-bottom:0px;
+        padding-bottom:0px;
+    }    
     .HorizontalSliderVatPanelImage {
         width:25px;
         height:25px;
     }
     .HorizontalSliderVatPanelTitle { 
         height:25px;
-        top:0px;
+        top:3px;
+        font-size:10pt;
     }
 }
-*/

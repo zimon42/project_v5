@@ -662,3 +662,26 @@ $(document).ready(() => {
         this.forceUpdate();
       });
 to VotePage.js -> componentDidMount
+
+Now it doesnt work again. Seems random. Has it something to do with that we are not using setState function as argument?
+
+Order when bugs out:
+(2) VotePage render
+Document is ready
+VotePage render
+Get vats:
+VotePage render
+(8) HorizontalSlider render
+
+Order when it works:
+(2) VotePage render
+Get vats
+VotePage render
+(8) HorizontalSlider render
+Document is ready
+VotePage render
+(8) HorizontalSlider render
+
+Added this.forceUpdate in end of loadVats callback function. Did that work?
+
+Working on slider button initial position bug.

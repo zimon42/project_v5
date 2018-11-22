@@ -5,6 +5,7 @@ import './VotePage.css';
 import $ from 'jquery';
 
 import { Redirect } from 'react-router';
+import Global from '../global';
 
 class VotePage extends Component {
 
@@ -64,10 +65,13 @@ class VotePage extends Component {
 
       // SliderButton didnt set position when page loaded, because jquery
       // call in HorizontalSlider returned undefined. Now this made it work:
+      // Nope random error
+      
       $(document).ready(() => {
         console.log("Document is ready");
         this.forceUpdate();
       });
+      
     }
 
     componentWillUnmount = () => {
@@ -356,6 +360,16 @@ class VotePage extends Component {
             stateCopy.votePageState = "showing_vote_panel";
 
             this.setState( stateCopy );
+            /*
+            this.setState(function(state, props) { 
+              return {
+                votePageState: stateCopy.votePageState,
+                vats: stateCopy.vats
+              }
+            });
+            */
+
+            this.forceUpdate();
         });  
     }
 
