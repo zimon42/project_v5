@@ -5,7 +5,7 @@ class HistoryItem extends Component {
 
     render() {
         return (
-            <div>                
+            <div class='HistoryItem'>                
                 <div class='HistoryItemHeader'>
                     Röst <b>{this.props.itemIndex+1}</b> av {this.props.itemTot} <br /> 
                     {this.props.itemData.date}                    

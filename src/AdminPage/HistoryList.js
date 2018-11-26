@@ -4,6 +4,7 @@ import './History.css';
 
 class HistoryList extends Component {
 
+/*
     numCols = 6;
 
     renderHistoryItem(item_i) {
@@ -43,6 +44,30 @@ class HistoryList extends Component {
         return (
             <div className='HistoryList'>
                 <table><tbody>{this.renderHistoryRows()}</tbody></table>
+            </div>
+        );
+    }
+
+*/   
+
+    renderHistoryItem(item_i) {
+        let itemTot = this.props.historyData.length;
+        return <HistoryItem itemIndex={item_i} itemTot={itemTot} itemData={this.props.historyData[item_i]} />
+    }
+
+    renderHistoryList() {
+        let itemTot = this.props.historyData.length;
+        let arr = new Array(itemTot);
+        for (let i=0; i<itemTot; i++) {
+            arr.push(this.renderHistoryItem(i));
+        }
+        return arr;
+    }
+
+    render() {
+        return (
+            <div className='HistoryList'>
+                {this.renderHistoryList()}
             </div>
         );
     }
