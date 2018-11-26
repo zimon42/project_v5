@@ -37,6 +37,8 @@ class HistoryList extends Component {
         return rows;
     }
 
+    // responsive_history branch test
+
     render() {
         return (
             <div className='HistoryList'>
