@@ -9,6 +9,7 @@ class HomePage extends Component {
                 <h1>Miedweb's momsröstnings-applikation version 4</h1>                
                 <Link to="/admin/">Admin-panelen</Link><br />
                 <Link to="/vote/">Rösta-panelen</Link>
+                <Link to="/vote/">Testa redigera fil</Link>
             </div>
         );
     }
